@@ -67,7 +67,7 @@ class SQLStorage(Storage):
             self.track_table = sql.Table(
                 table_name, meta,
                 sql.Column('id', sql.Integer, primary_key=True),
-                sql.Column('url', sql.String(128)),
+                sql.Column('url', sql.String(256)),
                 sql.Column('ua_browser', sql.String(16)),
                 sql.Column('ua_language', sql.String(16)),
                 sql.Column('ua_platform', sql.String(16)),

@@ -78,7 +78,7 @@ class SQLStorage(Storage):
                 sql.Column('remote_addr', sql.String(24)),
                 sql.Column('authorization', sql.Boolean),
                 sql.Column('ip_info', sql.String(128)),
-                sql.Column('path', sql.String(32)),
+                sql.Column('path', sql.String(64)),
                 sql.Column('speed', sql.Float),
                 sql.Column('datetime', sql.DateTime)
             )

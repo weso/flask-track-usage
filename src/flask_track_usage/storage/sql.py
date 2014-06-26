@@ -114,13 +114,8 @@ class SQLStorage(Storage):
             datetime=utcdatetime
         )
         con = self._get_connection()
-        error = True
-        while error:  # try to store until connection is established by the pool
-            try:
-                con.execute(stmt)
-                error = False
-            except:
-                error = True
+        con.connect()
+        con.execute(stmt)
         self._close_connection(con)
 
     def _get_connection(self):

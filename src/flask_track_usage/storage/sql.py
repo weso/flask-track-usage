@@ -114,8 +114,13 @@ class SQLStorage(Storage):
             datetime=utcdatetime
         )
         con = self._get_connection()
-        con.connect()
-        con.execute(stmt)
+        error = True
+        while error:
+            try:
+                con.execute(stmt)
+                error = False
+            except:
+                error = True
         self._close_connection(con)
 
     def _get_connection(self):
